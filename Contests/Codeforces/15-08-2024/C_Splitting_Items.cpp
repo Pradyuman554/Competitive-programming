@@ -1,48 +1,34 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
-#include<cmath>
-#include<map>
-#include<set>
-#include<queue>
-#include<stack>
-#include<deque>
-#include<climits>
-#include<cstring>
-#include<cassert>
-#include<unordered_map>
-#include<unordered_set>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    long long t;  cin>>t;
-    while(t--){
-
-        long long n, k;
-        cin>>n>>k;
-        vector<long long> ans(n);
-        for(long long i=0; i<n; i++)  cin>>ans[i];
-        sort(ans.begin(), ans.end());
-        long long sumA=0, sumB=0;
-        if(n%2==0){  //Even
-            for(long long i=1; i<n; i+=2) sumA += ans[i];
-            for(long long i=0; i<n; i+=2) sumB += ans[i];
-        }
-        else{
-            for(long long i=0; i<n; i+=2) sumA += ans[i];
-            for(long long i=1; i<n; i+=2) sumB += ans[i];
-        }
-
-        long long difference = sumA-sumB;
-        if(k>=difference){
-            cout<<0<<endl;
-            continue;
-        }
-        else{
-            cout<<difference-k<<endl;
-        }
+#define ll long long
+#define srt(array) sort(array.begin(), array.end())
+ 
+ll solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<ll> a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    srt(a);
+    ll cumDiff = 0;
+    for(int i=n-1; i>=((n&1) ? 2 : 1); i-=2) {
+        cumDiff += (a[i] - a[i-1]);
+    }
+    if(cumDiff <= k) {
+        if(n&1) {return a[0];}
+        else {return 0;}
+    } else {
+        if(n&1) {return (a[0]+(cumDiff-k));}
+    }
+    return (cumDiff - k);
+}
+ 
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int t;
+    cin >> t;
+    while(t--) {
+        cout << solve() << endl;
     }
     return 0;
 }

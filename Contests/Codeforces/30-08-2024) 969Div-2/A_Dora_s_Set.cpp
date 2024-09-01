@@ -5,7 +5,7 @@ using namespace std;
 void solve() {
     int first=0, second=0;
     cin>>first>>second;
-    int diff = ((second+1)/2 - first/2) ;
+    int diff = ((second+1)/2 - first/2);
     cout<< diff/2<<endl;
 }
 

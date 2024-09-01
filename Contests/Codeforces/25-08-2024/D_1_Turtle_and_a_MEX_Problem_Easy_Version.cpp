@@ -38,10 +38,10 @@ void solve() {
         k = max(k, mex);
     }
     
-    if (k >= m) {
+    if (k >= m) {   //Agar hamara k bada hai to bas bas multiply multiply karna padta hai na, like 3>=2
         cout << (m + 1) * k << endl;
-    } else {
-        cout << k * k + (m + k) * (m - k + 1) / 2 << endl;
+    } else {    //Like in test case, 3<6
+        cout << ( (k*k) + k + (m*m) + m )/2 << endl;
     }
     
 }

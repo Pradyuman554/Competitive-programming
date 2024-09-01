@@ -5,13 +5,10 @@ using namespace std;
 void solve() {
     int first=0, second=0;
     cin>>first>>second;
-    if(second==3){
-        cout<<1<<endl;
-        return;
-    }
-    int diff = second-first+1;
-    cout<< diff/4<<endl;
+    int diff = ((second+1)/2 - first/2) ;
+    cout<< diff/2<<endl;
 }
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);

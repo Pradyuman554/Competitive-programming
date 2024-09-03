@@ -8,12 +8,26 @@ int main() {
         int a, b;
         cin >> a >> b;
         
-        // Check if it's possible to achieve a sum of 0
-        if ((a % 2 == 0 && (b % 2 == 0 || b % 2 == 1)) || (a % 2 == 1 && b % 2 == 1)) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+        if(a%2){
+            cout<<"NO"<<endl;
+            continue;
         }
+
+        if(a>=b){
+            cout<<"YES"<<endl;
+            continue;
+        }
+
+        if(b%2==1){
+            if(a>=2)    cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+            continue;
+        }
+        else{
+            cout<<"YES"<<endl;  continue;
+        }
+
+        cout<<"NO"<<endl;
     }
     return 0;
 }
